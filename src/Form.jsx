@@ -1,46 +1,138 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-export default class Form extends Component {
+class Form extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      todo: {
+        id: 1,
+        text: '',
+        priority: ''
+      },
+      obnoxious: false
+    };
+
+    this.handleTask = this.handleTask.bind(this);
+    this.handlePriority = this.handlePriority.bind(this);
+    this.addToDoAndClear = this.addToDoAndClear.bind(this);
+
   }
-  handleChange(e) {
-    this.setState({ text: e.target.value });
+
+  handleTask(e) {
+    // this.setState({ text: e.target.value })
+
+    // const eTargetValue = e.target.value;
+
+    // this.setState((state) => {
+    //   state.todo.text = eTargetValue;
+    //   return state;
+    // });
+
+    let newToDoObj = Object.assign({}, this.state.todo)
+    newToDoObj.text = e.target.value
+    this.setState({todo: newToDoObj});
+
+    // let newToDoObj = {...this.state.todo};
+    // newToDoObj.text = e.target.value;
+    // this.setState({todo: newToDoObj});
+
+  }
+
+  handlePriority(e) {
+    // this.setState({ priority: parseInt(e.target.value) });
+
+    const eTargetValue = e.target.value;
+
+    this.setState((state) => {
+      state.todo.priority = eTargetValue;
+      return state;
+    });
+
+  }
+
+  addToDoAndClear() {
+    if (this.state.todo.text && this.state.todo.priority) {
+      this.props.addItem(this.state.todo);
+
+      this.setState({
+        todo: {
+          id: this.state.todo.id + 1,
+          text: '',
+          priority: ''
+        },
+        obnoxious: false
+      });
+
+    } else {
+    this.setState({ obnoxious: true });
+    }
   }
 
   render() {
-    return (
-      <div className='col-sm-4'>
-        <div className='panel panel-default'>
-          <div className='panel-heading'>Add New To-do</div>
-          <div className='panel-body'>
-            <strong>I want to...</strong>
-            <br />
-            <textarea
-              className='form-control'
-              onChange={this.props.textState}
-              value={this.props.text} />
-            <br />
-            <strong>How much of a priority is this?</strong>
-            <br />
-            <select required
-              className='form-control'
-              onChange={this.props.priorityState}>
-              <option>Select Priority</option>
-              <option value='3'>Low Priority</option>
-              <option value='2'>Medium Priority</option>
-              <option value='1'>High Priority</option>
-            </select>
-          </div>
-          <div className='panel-footer'>
-            <button type='button'
-              className='btn btn-success'
-              onClick={this.props.addItem}>Add</button>
+    if (this.state.obnoxious) {
+      return (
+        <div className='col-sm-4'>
+          <div className='panel panel-default'>
+            <div className='panel-heading'>Add New To-do</div>
+            <div className='panel-body'>
+              <div className='bold'>I want to...</div>
+              <div><textarea
+                onChange={this.handleTask}
+                value={this.state.todo.text} /></div>
+              <div></div>
+              <div className='bold'>How much of a priority is this?</div>
+              <select
+                className='form-control animated intensifies'
+                onChange={this.handlePriority}
+                value={this.state.todo.priority}>
+                <option>Select Priority </option>
+                <option value='3'>Low Priority</option>
+                <option value='2'>Medium Priority</option>
+                <option value='1'>High Priority</option>
+              </select>
+            </div>
+            <div className='panel-footer'>
+              <button type='button'
+                className='btn btn-success'
+                onClick={this.addToDoAndClear}>Add</button>
+            </div>
           </div>
         </div>
-      </div>
-
-
-    );
+      );
+    } else {
+      return (
+        <div className='col-sm-4'>
+          <div className='panel panel-default'>
+            <div className='panel-heading'>Add New To-do</div>
+            <div className='panel-body'>
+              <div className='bold'>I want to...</div>
+              <div><textarea
+                className='borders'
+                onChange={this.handleTask}
+                value={this.state.todo.text} /></div>
+              <div></div>
+              <div className='bold'>How much of a priority is this?</div>
+              <select
+                className='form-control'
+                onChange={this.handlePriority}
+                value={this.state.todo.priority}>
+                <option>Select Priority</option>
+                <option value='3'>Low Priority</option>
+                <option value='2'>Medium Priority</option>
+                <option value='1'>High Priority</option>
+              </select>
+            </div>
+            <div className='panel-footer'>
+              <button type='button'
+                className='btn btn-success'
+                onClick={this.addToDoAndClear}>Add</button>
+            </div>
+          </div>
+        </div>
+      )
+    }
   }
 }
+
+export default Form;

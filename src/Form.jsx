@@ -64,7 +64,7 @@ class Form extends Component {
             <div className='panel-heading'>Add New To-do</div>
             <div className='panel-body'>
               <div className='bold'>I want to...</div>
-              <div><textarea
+              <div><textarea className='create-todo-text'
                 onChange={this.handleTask}
                 value={this.state.todo.text} /></div>
               <div></div>
@@ -95,13 +95,13 @@ class Form extends Component {
             <div className='panel-body'>
               <div className='bold'>I want to...</div>
               <div><textarea
-                className='borders'
+                className='borders create-todo-text'
                 onChange={this.handleTask}
                 value={this.state.todo.text} /></div>
               <div></div>
               <div className='bold'>How much of a priority is this?</div>
               <select
-                className='form-control'
+                className='form-control create-todo-priority'
                 onChange={this.handlePriority}
                 value={this.state.todo.priority}>
                 <option>Select Priority</option>

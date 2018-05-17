@@ -20,15 +20,6 @@ class Form extends Component {
   }
 
   handleTask(e) {
-    // this.setState({ text: e.target.value })
-
-    // const eTargetValue = e.target.value;
-
-    // this.setState((state) => {
-    //   state.todo.text = eTargetValue;
-    //   return state;
-    // });
-
     let newToDoObj = Object.assign({}, this.state.todo)
     newToDoObj.text = e.target.value
     this.setState({todo: newToDoObj});
@@ -42,12 +33,9 @@ class Form extends Component {
   handlePriority(e) {
     // this.setState({ priority: parseInt(e.target.value) });
 
-    const eTargetValue = e.target.value;
-
-    this.setState((state) => {
-      state.todo.priority = eTargetValue;
-      return state;
-    });
+    let newToDoObj = Object.assign({}, this.state.todo)
+    newToDoObj.priority = e.target.value
+    this.setState({todo: newToDoObj});
 
   }
 

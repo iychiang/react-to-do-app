@@ -12,22 +12,24 @@ class ToDoList extends Component {
   render() {
     if (this.props.toDoList == 0) {
       return (
-        <div className='col-sm-8'>
-          <NoToDo />
-        </div>
+        <NoToDo />
       );
     } else {
       return (
         <div className='col-sm-8'>
-          {this.props.toDoList.map(todo => (
-            <IndividualToDo
-              handleEdit={this.props.handleEdit}
-              handleDelete={this.props.handleDelete}
-              todo={todo}
-              key={todo.id} />
-          ))
-          }
-        </div>
+          <div className='panel panel-default'>
+            <div className='panel-heading'>View To-do</div>
+              {this.props.toDoList.map((todo, index) => (
+                <IndividualToDo
+                  handleSave={this.props.handleSave}
+                  handleDelete={this.props.handleDelete}
+                  todo={todo}
+                  index={index}
+                  key={todo.id} />
+              ))
+              }
+            </div>
+          </div>
       );
     }
   }

@@ -6,16 +6,18 @@ class IndividualToDo extends Component {
 
     this.state = {
       editing: false,
+      text: props.todo.text
     };
 
     this.setEdit = this.setEdit.bind(this);
   }
 
-  setEdit(editing) {
-    this.setState({ editing: editing });
-    if (false){
-      this.props.handleSave(this.props.index);
-    }
+  setEdit(e) {
+    console.log(this.state.text);
+    this.setState({ 
+    editing: !this.state.editing,
+    text: this.state.text }, () => console.log(this.state));
+    
   }
 
   // startEditing(){
@@ -34,12 +36,12 @@ class IndividualToDo extends Component {
               <div className='row'>
                 <div className='col-sm-10'>
                   <textarea className='form-control'
-                  value={this.props.todo.text}
-                  onChange={this.props.handleSave} />
+                  value={this.state.text}
+                  onChange={(e) => this.setState({text: e.target.value})} />
                 </div>
                 <div className='col-sm-2 btn-group'>
                   <button type='button' className='btn btn-block btn-primary btn-sm'
-                    onClick={() => this.setEdit(false)}>
+                    onClick={this.setEdit}>
                     <span className='glyphicon glyphicon-floppy-disk'></span></button>
                 </div>
               </div>
@@ -53,12 +55,12 @@ class IndividualToDo extends Component {
                   <input type='checkbox' />
                 </div>
                 <div className='col-sm-9'>
-                {this.props.todo.text}
+                {this.state.text}
                 </div>
                 <div className='col-sm-2 btn-group'>
                   <button
                     type='button' className='btn btn-block btn-primary btn-sm'
-                    onClick={() => this.setEdit(true)}><span className='glyphicon glyphicon-pencil'></span></button>
+                    onClick={this.setEdit}><span className='glyphicon glyphicon-pencil'></span></button>
                   <button
                     type='button' className='btn btn-block btn-primary btn-sm'
                     onClick={() => this.props.handleDelete(this.props.index)}><span className='glyphicon glyphicon-trash'></span></button>

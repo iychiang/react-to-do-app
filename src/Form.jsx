@@ -36,7 +36,6 @@ class Form extends Component {
     let newToDoObj = Object.assign({}, this.state.todo)
     newToDoObj.priority = e.target.value
     this.setState({todo: newToDoObj});
-
   }
 
   addToDoAndClear() {

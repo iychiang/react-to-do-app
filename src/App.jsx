@@ -12,17 +12,21 @@ class App extends Component {
 
     this.addItem = this.addItem.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-    this.handleSave = this.handleSave.bind(this);
   }
 
   addItem(toDo) {
     this.setState({ toDoList: [...this.state.toDoList, toDo] });
   }
 
-  handleSave(index){
+  // handleSave(index, text){
     
-    console.log('hit handleEdit');
-  }
+  //   let newList = [...this.state.toDoList];
+  //   newList[index].text = e.target.value;
+
+  //   newList.splice(index, 1, newList[index]);
+  //   this.setState({ toDoList: newList });
+  //   console.log('hit handleSave');
+  // }
 
   handleDelete(index){
     let newList = [...this.state.toDoList];

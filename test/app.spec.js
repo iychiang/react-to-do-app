@@ -52,7 +52,7 @@ describe('Very Simple To Do App', function main() {
       .click('button.create-todo')
       .wait(500)
       .evaluate(() => {
-        const { innerText, className } = document.querySelectorAll('li')[0];
+        const { innerText, className } = document.querySelectorAll('.todo-text')[0];
         return { innerText, className };
       })
       .then(({ innerText, className }) => {

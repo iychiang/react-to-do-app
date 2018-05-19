@@ -73,7 +73,7 @@ class App extends Component {
             handleArchive={this.handleArchive} />
         </div>
         <div className='col-sm-4 row footer'>
-          Tasks completed: {this.state.archive.length}
+          Tasks completed: <span className='bold footer'>{this.state.archive.length}</span>
         </div>
       </div>
     );

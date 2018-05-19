@@ -116,7 +116,7 @@ class IndividualToDo extends Component {
               <input type='checkbox'
                 onChange={this.setCheck} />
             </div>
-            <div className={`col-sm-8 ${this.toggleStrike()}`}>
+            <div className={`col-sm-8 todo-text success ${this.toggleStrike()}`}>
               {this.state.text}
             </div>
             <div className='col-sm-3 text-right btn-group'>

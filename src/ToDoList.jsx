@@ -29,8 +29,8 @@ class ToDoList extends Component {
                   key={todo.id} />
               ))
               }
-            </div>
           </div>
+        </div>
       );
     }
   }

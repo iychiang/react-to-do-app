@@ -15,18 +15,12 @@ class App extends Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleArchive = this.handleArchive.bind(this);
+    this.handleSort = this.handleSort.bind(this);
   }
 
   addItem(toDo) {
-    this.setState({ toDoList: [...this.state.toDoList, toDo] });
+    this.setState({ toDoList: [...this.state.toDoList, toDo] }, () => this.handleSort());
   }
-
-  // handleUpdate(index, todo){
-  //   let newList = [...this.state.toDoList];
-
-  //   newList.splice(index, 1, todo);
-  //   this.setState({ toDoList: newList})
-  // }
 
   handleUpdate(index, prevToDo, nextToDo) {
     let newList = [...this.state.toDoList];
@@ -45,7 +39,6 @@ class App extends Component {
 
     newList.splice(index, 1);
     this.setState({ toDoList: newList });
-
   }
 
   handleArchive(index) {
@@ -53,9 +46,16 @@ class App extends Component {
 
     var item = newList.splice(index, 1);
     this.setState({ toDoList: newList, archive: [...this.state.archive, item] });
-
   }
   
+  handleSort() {
+    console.log(this.state.toDoList);
+    let newList = [...this.state.toDoList];
+    newList.sort((a, b) => a.priority - b.priority);
+
+    this.setState({ toDoList: newList }, () => console.log('newList', newList));
+  }
+
   //the more components, the more independent state should be to the component
   //don't change/mutate state in constructor, use setstate cause no rerendering
 

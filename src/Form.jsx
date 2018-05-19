@@ -20,21 +20,19 @@ class Form extends Component {
   }
 
   handleTask(e) {
-    let newToDoObj = Object.assign({}, this.state.todo)
-    newToDoObj.text = e.target.value
+    let newToDoObj = Object.assign({}, this.state.todo);
+    newToDoObj.text = e.target.value;
     this.setState({ todo: newToDoObj });
 
     // let newToDoObj = {...this.state.todo};
     // newToDoObj.text = e.target.value;
     // this.setState({todo: newToDoObj});
-
   }
 
   handlePriority(e) {
     // this.setState({ priority: parseInt(e.target.value) });
-
-    let newToDoObj = Object.assign({}, this.state.todo)
-    newToDoObj.priority = e.target.value
+    let newToDoObj = Object.assign({}, this.state.todo);
+    newToDoObj.priority = e.target.value;
     this.setState({ todo: newToDoObj });
   }
 

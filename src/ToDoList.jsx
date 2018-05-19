@@ -21,7 +21,9 @@ class ToDoList extends Component {
             <div className='panel-heading'>View To-do</div>
               {this.props.toDoList.map((todo, index) => (
                 <IndividualToDo
+                  handleUpdate={this.props.handleUpdate}
                   handleDelete={this.props.handleDelete}
+                  handleArchive={this.props.handleArchive}
                   todo={todo}
                   index={index}
                   key={todo.id} />

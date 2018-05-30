@@ -126,7 +126,7 @@ class IndividualToDo extends Component {
               <button
                 type='button' className='btn btn-block btn-primary btn-sm delete-todo'
                 onClick={() => this.props.handleDelete(this.props.index)}><span className='glyphicon glyphicon-trash'></span></button>
-              { <button type='button' className={`btn btn-block ${this.state.checked ? 'btn-success' : 'btn-warning' } btn-sm`}
+              { <button type='button' className={`btn btn-block ${this.state.checked ? 'btn-success' : 'archive' } btn-sm`}
                 onClick={this.state.checked ? () => this.props.handleArchive(this.props.index) : null }><span className='glyphicon glyphicon-ok'></span></button>
               }
             </div>

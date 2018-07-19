@@ -14,43 +14,54 @@ h1 {
   font-size: 42px;
   font-family: 'Gothic A1', sans-serif;
   font-weight: bolder;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
-.very {
-  font-size: 42px;
-  color: #ffffff;
-  font-weight: bold;
+h3 {
+  margin-top: 0;
 }
 
-.subheader {
-  color: #054279;
+h1, h3 {
+  font-weight: 200;
+  color: whitesmoke;
+  padding: 12px;
 }
 
-span {
-  font-size: 26px;
-  color:#ffffff;
-  font-family: 'Gothic A1', sans-serif;
-}
-
-hr {
-  margin-top: 10px;
+h4 {
+  margin: 8px;
+  padding: 6px;
+  color: whitesmoke;
+  font-weight: 200;
 }
 
 select {
-  margin: 5px 0px;
+  margin: 5px 0px; 
 }
 
-.no-padding {
-  padding: 0 !important;
+:required {
+  outline: -webkit-focus-ring-color auto 5px;
+  outline-offset: -2px;
 }
+
+// .no-padding {
+//   padding: 0 !important;
+// }
 
 .white {
   color: white !important;
 }
 
+.subheader {
+  font-size: 24px;
+}
+
 .strike-through {
   text-decoration: line-through;
+}
+
+.header {
+  background-color: #00000030;
+  border-radius: 5px;
 }
 
 textarea {
@@ -116,12 +127,6 @@ div.priority {
   padding-top: 8px;
 }
 
-.footer {
-  color: #054279;
-  font-size: 20px;
-  font-family: 'Gothic A1', sans-serif;
-}
-
 .update-todo {
   width: 50%;
 }
@@ -131,3 +136,8 @@ div.priority {
     border-color: rgb(122, 122, 122);
   }
 
+.footer {
+  background-color: #00000030;
+  border-radius: 5px;
+  font-size: 20px;
+}

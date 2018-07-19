@@ -73,10 +73,12 @@ class Form extends Component {
               <div></div>
               <div className='bold'>How much of a priority is this?</div>
               <select
-                className='form-control animated intensifies'
+                className='form-control'
                 onChange={this.handlePriority}
                 value={this.state.todo.priority}
-                onClick={this.spareUser}>
+                onClick={this.spareUser} 
+                required
+                >
                 <option>Select Priority </option>
                 <option value='3'>Low Priority</option>
                 <option value='2'>Medium Priority</option>

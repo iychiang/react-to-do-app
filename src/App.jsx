@@ -47,7 +47,7 @@ class App extends Component {
     var item = newList.splice(index, 1);
     this.setState({ toDoList: newList, archive: [...this.state.archive, item] });
   }
-  
+
   handleSort() {
     console.log(this.state.toDoList);
     let newList = [...this.state.toDoList];
@@ -62,9 +62,10 @@ class App extends Component {
   render() {
     return (
       <div className='container'>
-        <h1><span className='very'>Very</span> Simple To-do App</h1>
-        <p><span className='subheader'>Track all the things!</span></p>
-        <hr />
+        <div className='header'>
+          <h1><span className='very'>The</span> Simple To-do App</h1>
+          <h3><span className='subheader'>Track all the things!</span></h3>
+        </div>
         <div className='row'>
           <Form addItem={this.addItem} />
           <ToDoList toDoList={this.state.toDoList}
@@ -72,8 +73,10 @@ class App extends Component {
             handleDelete={this.handleDelete}
             handleArchive={this.handleArchive} />
         </div>
-        <div className='col-sm-4 row footer'>
-          Tasks completed: <span className='bold footer'>{this.state.archive.length}</span>
+        <div className='row'>
+          <div className='footer col-sm-4'>
+            <h4>Tasks completed: {this.state.archive.length}</h4>
+          </div>
         </div>
       </div>
     );
